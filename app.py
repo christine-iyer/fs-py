@@ -6,7 +6,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'  # Adjust the URI as needed
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-CORS(app)  # Enable CORS to allow requests from React (frontend)
+CORS(app, resources={r"/*": {"origins": "*"}})  # Enable CORS to allow requests from React (frontend)
 
 # Initialize the database
 db = SQLAlchemy(app)
